@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Academic Hub</title>
+  <meta name="description" content="A clean academic website starter for departments, researchers, and student groups." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="container nav-wrap">
+      <a class="brand" href="#home">Academic Hub</a>
+      <button class="menu-btn" id="menuBtn" aria-label="Toggle navigation">☰</button>
+      <nav class="nav" id="nav">
+        <a href="#about">About</a>
+        <a href="#programs">Programs</a>
+        <a href="#research">Research</a>
+        <a href="#space">Space Education</a>
+        <a href="#events">Events</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="home">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <span class="eyebrow">University / Department / Lab</span>
+          <h1>Build your academic presence with a polished website.</h1>
+          <p class="lead">Showcase your mission, programs, faculty, research, and contact details in a modern, responsive design.</p>
+          <div class="hero-actions">
+            <a class="btn primary" href="#contact">Get in touch</a>
+            <a class="btn secondary" href="#programs">Explore programs</a>
+          </div>
+        </div>
+        <div class="hero-card">
+          <h2>Highlights</h2>
+          <ul>
+            <li>Responsive layout for mobile and desktop</li>
+            <li>Easy sections for academics and students</li>
+            <li>Simple, editable HTML/CSS/JS structure</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="container">
+        <h2>About Us</h2>
+        <p>We support learning, innovation, and research through teaching, collaboration, and community engagement.</p>
+      </div>
+    </section>
+
+    <section class="section alt" id="programs">
+      <div class="container">
+        <h2>Programs</h2>
+        <div class="cards">
+          <article class="card">
+            <h3>Undergraduate Study</h3>
+            <p>Introduce your degree offerings, admission details, and student support services.</p>
+          </article>
+          <article class="card">
+            <h3>Postgraduate Study</h3>
+            <p>Highlight taught masters, PhD pathways, supervision, and funding opportunities.</p>
+          </article>
+          <article class="card">
+            <h3>Professional Development</h3>
+            <p>Share short courses, workshops, certificates, and continuing education options.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="research">
+      <div class="container">
+        <h2>Research</h2>
+        <div class="split">
+          <p>Use this space to present research themes, publications, labs, grants, and collaborations.</p>
+          <ul class="bullet-list">
+            <li>Research groups and labs</li>
+            <li>Recent publications</li>
+            <li>Student research opportunities</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt" id="space">
+      <div class="container">
+        <h2>Space Education / Activities</h2>
+        <div class="cards">
+          <article class="card">
+            <h3>Space Education</h3>
+            <p>List lectures, outreach sessions, curriculum links, and learning resources about astronomy and space science.</p>
+          </article>
+          <article class="card">
+            <h3>Hands-on Activities</h3>
+            <p>Share workshops, observing nights, model-building, coding sessions, and student-led projects.</p>
+          </article>
+          <article class="card">
+            <h3>Public Engagement</h3>
+            <p>Highlight school visits, community events, planetarium sessions, and invited talks.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt" id="events">
+      <div class="container">
+        <h2>Upcoming Events</h2>
+        <div class="timeline">
+          <div class="timeline-item">
+            <span class="date">12 Sep</span>
+            <div>
+              <h3>Guest Lecture Series</h3>
+              <p>Invite external speakers and announce seminars or public talks.</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <span class="date">24 Sep</span>
+            <div>
+              <h3>Research Showcase</h3>
+              <p>Present student posters, demonstrations, and project outcomes.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="container contact-grid">
+        <div>
+          <h2>Contact</h2>
+          <p>Email: bd520@cam.ac.uk</p>
+          <p>Phone: +44 (0)20 0000 0000</p>
+          <p>Location: Academic Building, Campus Name</p>
+          <p class="contact-note">Use the form to send a general enquiry or speaker request. Submissions are handled through a hosted form service and delivered to bd520@cam.ac.uk.</p>
+        </div>
+        <form class="contact-form" id="contactForm" action="https://formsubmit.co/ajax/bd520@cam.ac.uk" method="POST">
+          <input type="hidden" name="_subject" id="subjectField" value="New website enquiry">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_replyto" id="replyToField" value="">
+          <input type="text" name="_honey" class="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+          <label class="sr-only" for="requestType">Request type</label>
+          <select id="requestType" name="requestType" required>
+            <option value="" selected disabled>Select request type</option>
+            <option value="General contact">General contact</option>
+            <option value="Speaker request">Speaker request</option>
+          </select>
+          <input type="text" id="name" name="name" placeholder="Your name" aria-label="Your name" required />
+          <input type="email" id="email" name="email" placeholder="Your email" aria-label="Your email" required />
+          <input type="text" id="subject" name="messageSubject" placeholder="Subject" aria-label="Subject" required />
+          <textarea id="message" name="message" rows="6" placeholder="Your message" aria-label="Your message" required></textarea>
+          <button type="submit" class="btn primary">Send message</button>
+          <p class="form-status" id="formStatus" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>© 2026 Academic Hub. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
