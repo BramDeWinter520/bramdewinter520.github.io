@@ -1,29 +1,190 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>Bram de Winter | Academic Website</title>
-  <meta name="description" content="Academic homepage for Bram de Winter: Earth and Planetary Sciences, isotope geochemistry, space education, outreach, publications, and CV." />
+
+  <meta
+    name="description"
+    content="Academic homepage for Bram de Winter: Earth and Planetary Sciences, isotope geochemistry, space education, outreach, publications, and CV."
+  />
+
   <meta name="theme-color" content="#0f172a" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+    rel="stylesheet"
+  >
+
   <link rel="stylesheet" href="styles.css" />
+
+  <!-- SLIDESHOW CSS -->
+  <style>
+    .hero-media {
+      width: 100%;
+    }
+
+    .hero-slideshow {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      overflow: hidden;
+      border-radius: 24px;
+      background: #e5e7eb;
+    }
+
+    .hero-slide {
+      position: absolute;
+      inset: 0;
+      margin: 0;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.7s ease;
+    }
+
+    .hero-slide.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .hero-slide img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Previous and next arrows */
+
+    .slide-arrow {
+      position: absolute;
+      top: 50%;
+      z-index: 10;
+
+      width: 44px;
+      height: 44px;
+
+      border: none;
+      border-radius: 50%;
+
+      background: rgba(255, 255, 255, 0.85);
+      color: #0f172a;
+
+      font-size: 22px;
+      line-height: 1;
+
+      cursor: pointer;
+
+      transform: translateY(-50%);
+
+      transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+    }
+
+    .slide-arrow:hover {
+      background: #ffffff;
+      transform: translateY(-50%) scale(1.06);
+    }
+
+    .slide-arrow.prev {
+      left: 16px;
+    }
+
+    .slide-arrow.next {
+      right: 16px;
+    }
+
+    /* Navigation dots */
+
+    .slide-dots {
+      position: absolute;
+      z-index: 10;
+
+      left: 50%;
+      bottom: 18px;
+
+      display: flex;
+      gap: 8px;
+
+      transform: translateX(-50%);
+    }
+
+    .slide-dot {
+      width: 10px;
+      height: 10px;
+
+      padding: 0;
+      border: none;
+      border-radius: 50%;
+
+      background: rgba(255, 255, 255, 0.55);
+
+      cursor: pointer;
+
+      transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+    }
+
+    .slide-dot.active {
+      background: #ffffff;
+      transform: scale(1.25);
+    }
+
+    @media (max-width: 768px) {
+      .hero-slideshow {
+        aspect-ratio: 4 / 3;
+      }
+
+      .slide-arrow {
+        width: 38px;
+        height: 38px;
+        font-size: 18px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .hero-slide {
+        transition: none;
+      }
+    }
+  </style>
 </head>
+
+
 <body>
+
   <div class="page-shell">
+
+    <!-- HEADER -->
+
     <header class="topbar">
       <div class="container nav-wrap">
+
         <a class="brand" href="#home" aria-label="Home">
           <span class="brand-mark">BdW</span>
+
           <span class="brand-text">
             <strong>Bram de Winter</strong>
-            <small>Earth & Planetary Sciences</small>
+            <small>Earth &amp; Planetary Sciences</small>
           </span>
         </a>
 
-        <button class="menu-btn" id="menuBtn" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+        <button
+          class="menu-btn"
+          id="menuBtn"
+          aria-label="Toggle navigation"
+          aria-expanded="false"
+        >
+          ☰
+        </button>
 
         <nav class="nav" id="nav">
           <a href="#about">About</a>
@@ -34,14 +195,27 @@
           <a href="#space">Space Education</a>
           <a href="#contact">Contact</a>
         </nav>
+
       </div>
     </header>
 
+
     <main id="home">
+
+      <!-- ========================================= -->
+      <!-- HERO -->
+      <!-- ========================================= -->
+
       <section class="hero">
+
         <div class="container hero-grid">
+
           <div class="hero-copy">
-            <span class="eyebrow">Postdoc • University of Cambridge</span>
+
+            <span class="eyebrow">
+              Postdoc • University of Cambridge
+            </span>
+
             <p class="lead">
               I work on stable isotope fractionation in minerals, melts, and metallic systems,
               connecting atomic-scale processes to planetary evolution. My website also brings
@@ -49,288 +223,1139 @@
             </p>
 
             <div class="hero-actions">
-              <a class="btn primary" href="#contact">Contact me</a>
-              <a class="btn secondary" href="Bram_de_Winter_CV.pdf" download>Download CV</a>
-              <a class="btn secondary" href="#publications">Publications</a>
+
+              <a class="btn primary" href="#contact">
+                Contact me
+              </a>
+
+              <a
+                class="btn secondary"
+                href="Bram_de_Winter_CV.pdf"
+                download
+              >
+                Download CV
+              </a>
+
+              <a
+                class="btn secondary"
+                href="#publications"
+              >
+                Publications
+              </a>
+
             </div>
           </div>
 
-          <div class="hero-media" aria-label="Photo collage">
-            <figure class="media-card media-card-large">
-              <img src="graduation.jpg" alt="Bram de Winter in academic dress standing in front of a historic round building" onerror="this.closest('figure').classList.add('image-missing')" />
-            </figure>
-            <figure class="media-card media-card-top">
-              <img src="conference.jpg" alt="Bram de Winter speaking at a round table discussion in a library-style room" onerror="this.closest('figure').classList.add('image-missing')" />
-            </figure>
-            <figure class="media-card media-card-bottom">
-              <img src="portrait.jpg" alt="Portrait of Bram de Winter indoors wearing a suit" onerror="this.closest('figure').classList.add('image-missing')" />
-            </figure>
+
+          <!-- ========================================= -->
+          <!-- PHOTO SLIDESHOW -->
+          <!-- ========================================= -->
+
+          <div class="hero-media" aria-label="Photo slideshow">
+
+            <div class="hero-slideshow" id="heroSlideshow">
+
+              <!-- PHOTO 1 -->
+
+              <figure class="hero-slide active">
+
+                <img
+                  src="graduation.jpg"
+                  alt="Bram de Winter in academic dress standing in front of a historic round building"
+                >
+
+              </figure>
+
+
+              <!-- PHOTO 2 -->
+
+              <figure class="hero-slide">
+
+                <img
+                  src="conference.jpg"
+                  alt="Bram de Winter speaking at a round table discussion in a library-style room"
+                >
+
+              </figure>
+
+
+              <!-- PHOTO 3 -->
+
+              <figure class="hero-slide">
+
+                <img
+                  src="portrait.jpg"
+                  alt="Portrait of Bram de Winter indoors wearing a suit"
+                >
+
+              </figure>
+
+
+              <!-- LEFT ARROW -->
+
+              <button
+                class="slide-arrow prev"
+                type="button"
+                aria-label="Previous photo"
+              >
+                &#10094;
+              </button>
+
+
+              <!-- RIGHT ARROW -->
+
+              <button
+                class="slide-arrow next"
+                type="button"
+                aria-label="Next photo"
+              >
+                &#10095;
+              </button>
+
+
+              <!-- DOTS -->
+
+              <div
+                class="slide-dots"
+                aria-label="Choose photo"
+              >
+
+                <button
+                  class="slide-dot active"
+                  type="button"
+                  aria-label="Show photo 1"
+                ></button>
+
+                <button
+                  class="slide-dot"
+                  type="button"
+                  aria-label="Show photo 2"
+                ></button>
+
+                <button
+                  class="slide-dot"
+                  type="button"
+                  aria-label="Show photo 3"
+                ></button>
+
+              </div>
+
+            </div>
+
           </div>
+
         </div>
+
       </section>
 
-      <section class="section panel about" id="about">
+
+      <!-- ========================================= -->
+      <!-- ABOUT -->
+      <!-- ========================================= -->
+
+      <section
+        class="section panel about"
+        id="about"
+      >
+
         <div class="container about-grid">
+
           <div>
-            <span class="section-kicker">About</span>
-            <h2>Research, education, and public engagement.</h2>
+
+            <span class="section-kicker">
+              About
+            </span>
+
+            <h2>
+              Research, education, and public engagement.
+            </h2>
+
             <p>
-              I am a Postdoctoral Research Associate in Earth Sciences at University of Cambridge, focusing on isotope geochemistry,
-              magma-ocean processes, and the early differentiation of planets. My academic work sits
-              alongside a long-standing commitment to outreach, student mentoring, and space education.
+              I am a Postdoctoral Research Associate in Earth Sciences at University of Cambridge,
+              focusing on isotope geochemistry, magma-ocean processes, and the early differentiation
+              of planets. My academic work sits alongside a long-standing commitment to outreach,
+              student mentoring, and space education.
             </p>
+
             <p>
               I am especially interested in how isotope ratios can be used to connect mineral-scale
               processes to the evolution of planetary interiors, and in making those ideas accessible
               through teaching, talks, and public engagement. My research uses atomic-scale simulations
               and models to better understand the chemical composition of Bulk Earth.
             </p>
+
           </div>
+
 
           <div class="fact-grid">
+
             <article class="fact-card">
               <strong>Earth science</strong>
-              <span>Stable isotopes, high-pressure experiments, an planetary interiors</span>
+              <span>
+                Stable isotopes, high-pressure experiments, and planetary interiors
+              </span>
             </article>
+
             <article class="fact-card">
               <strong>Models</strong>
-              <span>DFT, MD Melt simulations, Isotope statistics</span>
+              <span>
+                DFT, MD Melt simulations, Isotope statistics
+              </span>
             </article>
+
             <article class="fact-card">
               <strong>Teaching</strong>
-              <span>Undergraduate teaching, supervision, and seminar organisation</span>
+              <span>
+                Undergraduate teaching, supervision, and seminar organisation
+              </span>
             </article>
+
             <article class="fact-card">
               <strong>Speaking</strong>
-              <span>Available for seminars, outreach events, and invited talks</span>
+              <span>
+                Available for seminars, outreach events, and invited talks
+              </span>
             </article>
+
           </div>
+
         </div>
+
       </section>
 
-      <section class="section" id="education">
+
+      <!-- ========================================= -->
+      <!-- EDUCATION -->
+      <!-- ========================================= -->
+
+      <section
+        class="section"
+        id="education"
+      >
+
         <div class="container">
+
           <div class="section-heading">
-            <span class="section-kicker">Education</span>
-            <h2>Academic training and degrees.</h2>
+
+            <span class="section-kicker">
+              Education
+            </span>
+
+            <h2>
+              Academic training and degrees.
+            </h2>
+
           </div>
+
 
           <div class="cards three-up">
+
             <article class="card education-card">
-              <div class="card-index">01</div>
-              <h3>University of Oxford</h3>
-              <p>PhD / DPhil in Earth Sciences, 2026.</p>
+
+              <div class="card-index">
+                01
+              </div>
+
+              <h3>
+                University of Oxford
+              </h3>
+
+              <p>
+                PhD / DPhil in Earth Sciences, 2026.
+              </p>
+
             </article>
+
+
             <article class="card education-card">
-              <div class="card-index">02</div>
-              <h3>VU Amsterdam</h3>
-              <p>MSc in Geology & Geochemistry, cum laude, 2022.</p>
+
+              <div class="card-index">
+                02
+              </div>
+
+              <h3>
+                VU Amsterdam
+              </h3>
+
+              <p>
+                MSc in Geology &amp; Geochemistry, cum laude, 2022.
+              </p>
+
             </article>
+
+
             <article class="card education-card">
-              <div class="card-index">03</div>
-              <h3>VU Amsterdam</h3>
-              <p>BSc in Earth Sciences, 2019.</p>
+
+              <div class="card-index">
+                03
+              </div>
+
+              <h3>
+                VU Amsterdam
+              </h3>
+
+              <p>
+                BSc in Earth Sciences, 2019.
+              </p>
+
             </article>
+
           </div>
+
         </div>
+
       </section>
 
-      <section class="section panel" id="research">
+
+      <!-- ========================================= -->
+      <!-- RESEARCH -->
+      <!-- ========================================= -->
+
+      <section
+        class="section panel"
+        id="research"
+      >
+
         <div class="container">
+
           <div class="section-heading">
-            <span class="section-kicker">Research</span>
-            <h2>Building a predictive picture of planetary differentiation.</h2>
+
+            <span class="section-kicker">
+              Research
+            </span>
+
+            <h2>
+              Building a predictive picture of planetary differentiation.
+            </h2>
+
           </div>
+
 
           <div class="cards three-up">
+
             <article class="card">
-              <div class="card-index">01</div>
-              <h3>Isotope fractionation</h3>
-              <p>Using Mg and Si isotopes to trace bonding environments, mineral transformations, and melt processes at high temperature.</p>
+
+              <div class="card-index">
+                01
+              </div>
+
+              <h3>
+                Isotope fractionation
+              </h3>
+
+              <p>
+                Using Mg and Si isotopes to trace bonding environments,
+                mineral transformations, and melt processes at high temperature.
+              </p>
+
             </article>
+
+
             <article class="card">
-              <div class="card-index">02</div>
-              <h3>Magma oceans</h3>
-              <p>Connecting crystallisation, core formation, and deep-mantle reservoirs to the chemical evolution of terrestrial planets.</p>
+
+              <div class="card-index">
+                02
+              </div>
+
+              <h3>
+                Magma oceans
+              </h3>
+
+              <p>
+                Connecting crystallisation, core formation, and deep-mantle reservoirs
+                to the chemical evolution of terrestrial planets.
+              </p>
+
             </article>
+
+
             <article class="card">
-              <div class="card-index">03</div>
-              <h3>Experiments + simulation</h3>
-              <p>Combining high-pressure experiments with ab initio molecular dynamics and DFT to generate testable predictions.</p>
+
+              <div class="card-index">
+                03
+              </div>
+
+              <h3>
+                Experiments + simulation
+              </h3>
+
+              <p>
+                Combining high-pressure experiments with ab initio molecular dynamics
+                and DFT to generate testable predictions.
+              </p>
+
             </article>
+
           </div>
+
         </div>
+
       </section>
 
-      <section class="section" id="cv">
+
+      <!-- ========================================= -->
+      <!-- CV -->
+      <!-- ========================================= -->
+
+      <section
+        class="section"
+        id="cv"
+      >
+
         <div class="container cv-grid">
+
           <div class="section-heading">
-            <span class="section-kicker">CV</span>
-            <h2>Download the full curriculum vitae.</h2>
+
+            <span class="section-kicker">
+              CV
+            </span>
+
+            <h2>
+              Download the full curriculum vitae.
+            </h2>
+
             <p class="muted-copy">
-              The CV includes education, awards, positions, publications, conference papers, extracurricular activities,
-              skills, and references.
+              The CV includes education, awards, positions, publications,
+              conference papers, extracurricular activities, skills, and references.
             </p>
-            <a class="btn primary inline-btn" href="Bram_de_Winter_CV.pdf" download>Download CV (PDF)</a>
+
+            <a
+              class="btn primary inline-btn"
+              href="Bram_de_Winter_CV.pdf"
+              download
+            >
+              Download CV (PDF)
+            </a>
+
           </div>
+
 
           <div class="cv-sidebar">
+
             <article class="card cv-card">
-              <h3>At a glance</h3>
+
+              <h3>
+                At a glance
+              </h3>
+
               <ul>
-                <li>Postdoctoral researcher in Earth Sciences at Cambridge</li>
-                <li>Research on Mg and Si isotope fractionation</li>
-                <li>Teaching, mentoring, and seminar organisation</li>
-                <li>Space outreach and international community work</li>
+                <li>
+                  Postdoctoral researcher in Earth Sciences at Cambridge
+                </li>
+
+                <li>
+                  Research on Mg and Si isotope fractionation
+                </li>
+
+                <li>
+                  Teaching, mentoring, and seminar organisation
+                </li>
+
+                <li>
+                  Space outreach and international community work
+                </li>
               </ul>
+
             </article>
+
           </div>
+
         </div>
+
       </section>
 
-      <section class="section panel" id="publications">
+
+      <!-- ========================================= -->
+      <!-- PUBLICATIONS -->
+      <!-- ========================================= -->
+
+      <section
+        class="section panel"
+        id="publications"
+      >
+
         <div class="container publication-grid">
+
           <div>
-            <span class="section-kicker">Publications</span>
-            <h2>Scrollable publication and conference lists.</h2>
+
+            <span class="section-kicker">
+              Publications
+            </span>
+
+            <h2>
+              Scrollable publication and conference lists.
+            </h2>
+
             <p>
-              The lists below mirror the content from the CV so visitors can quickly browse papers and presentations.
+              The lists below mirror the content from the CV so visitors
+              can quickly browse papers and presentations.
             </p>
+
           </div>
+
 
           <div class="list-columns">
-            <article class="list-panel">
-              <div class="list-panel-head">
-                <h3>Publications</h3>
-                <span>Scroll to browse</span>
-              </div>
-              <div class="scroll-list" aria-label="Publications list">
-                <div class="list-item">
-                  <strong>1.</strong>
-                  <p>B De Winter and X Liu T Elliot A Walker, E Melekhova, <em>The magnitude of equilibrium isotope fractionation of Mg between forsterite, diopside and melt at liquidus temperatures</em>, Geochimica et Cosmochimica Acta (Submitted).</p>
-                </div>
-                <div class="list-item">
-                  <strong>2.</strong>
-                  <p>I Nikogosian CJ De Hoog A Gartner JJ Bracco G Davies N Luciani, B De Winter and JM Koornneef, <em>Constraining the multiple mantle sources beneath Vulture (Italy) from geochemistry and boron isotopes of melt inclusions</em>, PhD Thesis chapter (2024).</p>
-                </div>
-              </div>
-            </article>
 
             <article class="list-panel">
+
               <div class="list-panel-head">
-                <h3>Conference presentations</h3>
-                <span>Scroll to browse</span>
+
+                <h3>
+                  Publications
+                </h3>
+
+                <span>
+                  Scroll to browse
+                </span>
+
               </div>
-              <div class="scroll-list" aria-label="Conference presentations list">
+
+
+              <div
+                class="scroll-list"
+                aria-label="Publications list"
+              >
+
                 <div class="list-item">
-                  <strong>1.</strong>
-                  <p>B De Winter and X Liu T Elliot A Walker, E Melekhova, <em>Calibrating mg isotope signatures for magma ocean evolution: A combined experimental and computational approach</em>, Goldschmidt 2025 Conference (2025).</p>
+
+                  <strong>
+                    1.
+                  </strong>
+
+                  <p>
+                    B De Winter and X Liu T Elliot A Walker, E Melekhova,
+                    <em>
+                      The magnitude of equilibrium isotope fractionation of Mg
+                      between forsterite, diopside and melt at liquidus temperatures
+                    </em>,
+                    Geochimica et Cosmochimica Acta (Submitted).
+                  </p>
+
                 </div>
+
+
                 <div class="list-item">
-                  <strong>2.</strong>
-                  <p>B De Winter and X Liu T Elliot A Walker, E Melekhova, <em>Isotopic hide-and-seek in the deep mantle, unveiling magnesium and silicon isotope fractionation in magma oceans to constrain primitive mantle heterogeneity</em>, AGU 2024 (2024).</p>
+
+                  <strong>
+                    2.
+                  </strong>
+
+                  <p>
+                    I Nikogosian CJ De Hoog A Gartner JJ Bracco G Davies N Luciani,
+                    B De Winter and JM Koornneef,
+                    <em>
+                      Constraining the multiple mantle sources beneath Vulture (Italy)
+                      from geochemistry and boron isotopes of melt inclusions
+                    </em>,
+                    PhD Thesis chapter (2024).
+                  </p>
+
                 </div>
-                <div class="list-item">
-                  <strong>3.</strong>
-                  <p>B De Winter and A Walker, <em>Using first-principles molecular dynamics to predict Si and Mg isotope fractionation between silicate melts and mantle minerals</em>, AGU 2024 (2024).</p>
-                </div>
-                <div class="list-item">
-                  <strong>4.</strong>
-                  <p>I Nikogosian CJ De Hoog A Gartner JJ Bracco G Davies N Luciani, B De Winter and JM Koornneef, <em>Investigating combined arc and OIB signatures at a post-collisional subduction setting by geochemical and boron isotope analyses of melt inclusions from Vulture, Italy</em>, Goldschmidt 2022 Conference (2022).</p>
-                </div>
+
               </div>
+
             </article>
+
+
+            <article class="list-panel">
+
+              <div class="list-panel-head">
+
+                <h3>
+                  Conference presentations
+                </h3>
+
+                <span>
+                  Scroll to browse
+                </span>
+
+              </div>
+
+
+              <div
+                class="scroll-list"
+                aria-label="Conference presentations list"
+              >
+
+                <div class="list-item">
+
+                  <strong>
+                    1.
+                  </strong>
+
+                  <p>
+                    B De Winter and X Liu T Elliot A Walker, E Melekhova,
+                    <em>
+                      Calibrating mg isotope signatures for magma ocean evolution:
+                      A combined experimental and computational approach
+                    </em>,
+                    Goldschmidt 2025 Conference (2025).
+                  </p>
+
+                </div>
+
+
+                <div class="list-item">
+
+                  <strong>
+                    2.
+                  </strong>
+
+                  <p>
+                    B De Winter and X Liu T Elliot A Walker, E Melekhova,
+                    <em>
+                      Isotopic hide-and-seek in the deep mantle, unveiling magnesium
+                      and silicon isotope fractionation in magma oceans to constrain
+                      primitive mantle heterogeneity
+                    </em>,
+                    AGU 2024 (2024).
+                  </p>
+
+                </div>
+
+
+                <div class="list-item">
+
+                  <strong>
+                    3.
+                  </strong>
+
+                  <p>
+                    B De Winter and A Walker,
+                    <em>
+                      Using first-principles molecular dynamics to predict Si and Mg
+                      isotope fractionation between silicate melts and mantle minerals
+                    </em>,
+                    AGU 2024 (2024).
+                  </p>
+
+                </div>
+
+
+                <div class="list-item">
+
+                  <strong>
+                    4.
+                  </strong>
+
+                  <p>
+                    I Nikogosian CJ De Hoog A Gartner JJ Bracco G Davies N Luciani,
+                    B De Winter and JM Koornneef,
+                    <em>
+                      Investigating combined arc and OIB signatures at a post-collisional
+                      subduction setting by geochemical and boron isotope analyses of
+                      melt inclusions from Vulture, Italy
+                    </em>,
+                    Goldschmidt 2022 Conference (2022).
+                  </p>
+
+                </div>
+
+              </div>
+
+            </article>
+
           </div>
+
         </div>
+
       </section>
 
-      <section class="section" id="space">
+
+      <!-- ========================================= -->
+      <!-- SPACE EDUCATION -->
+      <!-- ========================================= -->
+
+      <section
+        class="section"
+        id="space"
+      >
+
         <div class="container">
+
           <div class="section-heading">
-            <span class="section-kicker">Space education / activities</span>
-            <h2>Making space science engaging, collaborative, and hands-on.</h2>
+
+            <span class="section-kicker">
+              Space education / activities
+            </span>
+
+            <h2>
+              Making space science engaging, collaborative, and hands-on.
+            </h2>
+
           </div>
+
 
           <div class="cards four-up">
+
             <article class="card accent-card">
-              <h3>ACHIEVED Academy</h3>
-              <p>Free space engineering education and mission design experience for students, supported by expert speakers.</p>
+
+              <h3>
+                ACHIEVED Academy
+              </h3>
+
+              <p>
+                Free space engineering education and mission design experience
+                for students, supported by expert speakers.
+              </p>
+
             </article>
+
+
             <article class="card accent-card">
-              <h3>Oxford Space Network</h3>
-              <p>Community-building through talks, drinks, and informal networking for researchers and students interested in space.</p>
+
+              <h3>
+                Oxford Space Network
+              </h3>
+
+              <p>
+                Community-building through talks, drinks, and informal networking
+                for researchers and students interested in space.
+              </p>
+
             </article>
+
+
             <article class="card accent-card">
-              <h3>SGAC leadership</h3>
-              <p>International volunteer work across Europe and beyond, with project coordination and student engagement.</p>
+
+              <h3>
+                SGAC leadership
+              </h3>
+
+              <p>
+                International volunteer work across Europe and beyond,
+                with project coordination and student engagement.
+              </p>
+
             </article>
+
+
             <article class="card accent-card">
-              <h3>Outreach and mentoring</h3>
-              <p>School visits, science fairs, seminar organisation, and support for early-career scientists.</p>
+
+              <h3>
+                Outreach and mentoring
+              </h3>
+
+              <p>
+                School visits, science fairs, seminar organisation,
+                and support for early-career scientists.
+              </p>
+
             </article>
+
           </div>
+
         </div>
+
       </section>
 
-      <section class="section contact-section" id="contact">
+
+      <!-- ========================================= -->
+      <!-- CONTACT -->
+      <!-- ========================================= -->
+
+      <section
+        class="section contact-section"
+        id="contact"
+      >
+
         <div class="container contact-grid">
+
           <div class="contact-copy">
-            <span class="section-kicker">Contact</span>
-            <h2>For talks, collaborations, and general enquiries.</h2>
+
+            <span class="section-kicker">
+              Contact
+            </span>
+
+            <h2>
+              For talks, collaborations, and general enquiries.
+            </h2>
+
             <p>
-              Use the form to send either a speaker request or a general contact message. Submissions
-              are delivered to <strong>bd520@cam.ac.uk</strong> through a hosted form service.
+              Use the form to send either a speaker request or a general contact message.
+              Submissions are delivered to <strong>bd520@cam.ac.uk</strong>
+              through a hosted form service.
             </p>
 
+
             <div class="contact-points">
+
               <div>
-                <span>Email</span>
-                <strong>bd520@cam.ac.uk</strong>
+
+                <span>
+                  Email
+                </span>
+
+                <strong>
+                  bd520@cam.ac.uk
+                </strong>
+
               </div>
+
+
               <div>
-                <span>Request types</span>
-                <strong>Speaker request / General contact</strong>
+
+                <span>
+                  Request types
+                </span>
+
+                <strong>
+                  Speaker request / General contact
+                </strong>
+
               </div>
+
             </div>
+
           </div>
 
-          <form class="contact-form" id="contactForm" action="https://formsubmit.co/bd520@cam.ac.uk" method="POST">
-            <input type="hidden" name="_subject" id="subjectField" value="New website enquiry" />
-            <input type="hidden" name="_captcha" value="false" />
-            <input type="hidden" name="_template" value="table" />
-            <input type="hidden" name="_replyto" id="replyToField" value="" />
-            <input type="hidden" name="_next" value="https://example.com/thanks" />
-            <input type="text" name="_honey" class="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" />
 
-            <label class="sr-only" for="requestType">Request type</label>
-            <select id="requestType" name="requestType" required>
-              <option value="" selected disabled>Select request type</option>
-              <option value="General contact">General contact</option>
-              <option value="Speaker request">Speaker request</option>
+          <form
+            class="contact-form"
+            id="contactForm"
+            action="https://formsubmit.co/bd520@cam.ac.uk"
+            method="POST"
+          >
+
+            <input
+              type="hidden"
+              name="_subject"
+              id="subjectField"
+              value="New website enquiry"
+            >
+
+            <input
+              type="hidden"
+              name="_captcha"
+              value="false"
+            >
+
+            <input
+              type="hidden"
+              name="_template"
+              value="table"
+            >
+
+            <input
+              type="hidden"
+              name="_replyto"
+              id="replyToField"
+              value=""
+            >
+
+            <input
+              type="hidden"
+              name="_next"
+              value="https://example.com/thanks"
+            >
+
+            <input
+              type="text"
+              name="_honey"
+              class="honeypot"
+              tabindex="-1"
+              autocomplete="off"
+              aria-hidden="true"
+            >
+
+
+            <label
+              class="sr-only"
+              for="requestType"
+            >
+              Request type
+            </label>
+
+
+            <select
+              id="requestType"
+              name="requestType"
+              required
+            >
+
+              <option
+                value=""
+                selected
+                disabled
+              >
+                Select request type
+              </option>
+
+              <option value="General contact">
+                General contact
+              </option>
+
+              <option value="Speaker request">
+                Speaker request
+              </option>
+
             </select>
 
-            <div class="field-row">
-              <input type="text" id="name" name="name" placeholder="Your name" aria-label="Your name" required />
-              <input type="email" id="email" name="email" placeholder="Your email" aria-label="Your email" required />
-            </div>
-            <input type="text" id="subject" name="messageSubject" placeholder="Subject" aria-label="Subject" required />
-            <textarea id="message" name="message" rows="6" placeholder="Your message" aria-label="Your message" required></textarea>
 
-            <button type="submit" class="btn primary full-width">Send message</button>
-            <p class="form-status" id="formStatus" aria-live="polite"></p>
+            <div class="field-row">
+
+              <input
+                type="text"
+                id="name"
+                name="name"
+                placeholder="Your name"
+                aria-label="Your name"
+                required
+              >
+
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="Your email"
+                aria-label="Your email"
+                required
+              >
+
+            </div>
+
+
+            <input
+              type="text"
+              id="subject"
+              name="messageSubject"
+              placeholder="Subject"
+              aria-label="Subject"
+              required
+            >
+
+
+            <textarea
+              id="message"
+              name="message"
+              rows="6"
+              placeholder="Your message"
+              aria-label="Your message"
+              required
+            ></textarea>
+
+
+            <button
+              type="submit"
+              class="btn primary full-width"
+            >
+              Send message
+            </button>
+
+
+            <p
+              class="form-status"
+              id="formStatus"
+              aria-live="polite"
+            ></p>
+
           </form>
+
         </div>
+
       </section>
+
     </main>
 
+
+    <!-- ========================================= -->
+    <!-- FOOTER -->
+    <!-- ========================================= -->
+
     <footer class="footer">
+
       <div class="container footer-grid">
-        <p>© 2026 Bram de Winter</p>
-        <p>Academic website designed for GitHub Pages.</p>
+
+        <p>
+          © 2026 Bram de Winter
+        </p>
+
+        <p>
+          Academic website designed for GitHub Pages.
+        </p>
+
       </div>
+
     </footer>
+
   </div>
 
+
+  <!-- ========================================= -->
+  <!-- YOUR EXISTING JAVASCRIPT -->
+  <!-- ========================================= -->
+
   <script src="script.js"></script>
+
+
+  <!-- ========================================= -->
+  <!-- PHOTO SLIDESHOW JAVASCRIPT -->
+  <!-- ========================================= -->
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+
+      const slideshow = document.querySelector("#heroSlideshow");
+
+      if (!slideshow) {
+        return;
+      }
+
+      const slides = slideshow.querySelectorAll(".hero-slide");
+      const dots = slideshow.querySelectorAll(".slide-dot");
+      const prevButton = slideshow.querySelector(".slide-arrow.prev");
+      const nextButton = slideshow.querySelector(".slide-arrow.next");
+
+      let currentSlide = 0;
+      let slideInterval;
+
+
+      /* ----------------------------------------- */
+      /* SHOW A SPECIFIC SLIDE                     */
+      /* ----------------------------------------- */
+
+      function showSlide(index) {
+
+        slides[currentSlide].classList.remove("active");
+        dots[currentSlide].classList.remove("active");
+
+        currentSlide = (index + slides.length) % slides.length;
+
+        slides[currentSlide].classList.add("active");
+        dots[currentSlide].classList.add("active");
+
+      }
+
+
+      /* ----------------------------------------- */
+      /* NEXT SLIDE                                */
+      /* ----------------------------------------- */
+
+      function nextSlide() {
+        showSlide(currentSlide + 1);
+      }
+
+
+      /* ----------------------------------------- */
+      /* PREVIOUS SLIDE                            */
+      /* ----------------------------------------- */
+
+      function previousSlide() {
+        showSlide(currentSlide - 1);
+      }
+
+
+      /* ----------------------------------------- */
+      /* START AUTOMATIC SLIDESHOW                 */
+      /* ----------------------------------------- */
+
+      function startSlideshow() {
+
+        clearInterval(slideInterval);
+
+        slideInterval = setInterval(function () {
+          nextSlide();
+        }, 5000);
+
+      }
+
+
+      /* ----------------------------------------- */
+      /* STOP AUTOMATIC SLIDESHOW                  */
+      /* ----------------------------------------- */
+
+      function stopSlideshow() {
+        clearInterval(slideInterval);
+      }
+
+
+      /* ----------------------------------------- */
+      /* NEXT BUTTON                               */
+      /* ----------------------------------------- */
+
+      if (nextButton) {
+
+        nextButton.addEventListener("click", function () {
+
+          nextSlide();
+          startSlideshow();
+
+        });
+
+      }
+
+
+      /* ----------------------------------------- */
+      /* PREVIOUS BUTTON                           */
+      /* ----------------------------------------- */
+
+      if (prevButton) {
+
+        prevButton.addEventListener("click", function () {
+
+          previousSlide();
+          startSlideshow();
+
+        });
+
+      }
+
+
+      /* ----------------------------------------- */
+      /* DOT BUTTONS                               */
+      /* ----------------------------------------- */
+
+      dots.forEach(function (dot, index) {
+
+        dot.addEventListener("click", function () {
+
+          showSlide(index);
+          startSlideshow();
+
+        });
+
+      });
+
+
+      /* ----------------------------------------- */
+      /* PAUSE WHEN MOUSE IS OVER PHOTO            */
+      /* ----------------------------------------- */
+
+      slideshow.addEventListener("mouseenter", function () {
+        stopSlideshow();
+      });
+
+
+      slideshow.addEventListener("mouseleave", function () {
+        startSlideshow();
+      });
+
+
+      /* ----------------------------------------- */
+      /* PAUSE FOR KEYBOARD USERS                  */
+      /* ----------------------------------------- */
+
+      slideshow.addEventListener("focusin", function () {
+        stopSlideshow();
+      });
+
+
+      slideshow.addEventListener("focusout", function () {
+        startSlideshow();
+      });
+
+
+      /* ----------------------------------------- */
+      /* START                                     */
+      /* ----------------------------------------- */
+
+      startSlideshow();
+
+    });
+  </script>
+
 </body>
+</html>
+```
+
 </html>
